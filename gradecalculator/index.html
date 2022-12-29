@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grade calculator</title>
+    <style>
+        body {
+            background-color: rgba(0, 255, 136, 0.784);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 800px;
+            height: 500px;
+            background-color: rgba(0, 0, 0, 0.896);
+            margin: 0 auto;
+            border-radius: 20px;
+            margin-top: 120px;
+        }
+
+        .left {
+            width: 200px;
+            height: 160px;
+            float: left;
+            border-left: 3px solid green;
+            margin-left: 80px;
+            margin-top: 110px
+        }
+
+        .left h4 {
+            color:greenyellow;
+            text-align: left;
+            font-weight: 1200;
+            opacity: 100px;
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-bottom: 30px;
+            padding-left: 10px;
+        }
+
+        .right {
+            width: 400px;
+            height: 300px;
+            float: right;
+            margin-right: 50px;
+            margin-top: 50px;
+        }
+
+        .right .formapp {
+            width: 300px;
+            border-bottom: 3px solid gray;
+            font-size: 25px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background-color: rgba(0, 0, 0, 0.896);
+            margin-top: 10px;
+            margin-left: 30px;
+            color: white;
+        }
+
+        .right .btn {
+            width: 200px;
+            color: greenyellow;
+            margin-top: 30px;
+            font-size: 25px;
+            font-weight: 800;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-left: 60px;
+            background-color: rgba(0, 0, 0, 0.896);
+        }
+        .container p{
+            padding: 20px;
+            color: aliceblue;
+            font-weight: 700;
+            font-size: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+
+        }
+        .container .bottom{
+            width: 600px;
+            position: relative;
+            top: 10px;
+            margin: 0 auto;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <h4>
+                STUDENT<BR>GRADE<BR>CALCY
+            </h4>
+        </div>
+        <div class="right">
+            <form>
+                <input class="formapp" type="text" placeholder="computer" id="comp"><br><br>
+                <input class="formapp" type="text" placeholder="physics" id="phy"><br><br>
+                <input class="formapp" type="text" placeholder="chemistry" id="chem"><br><br>
+                <input class="formapp" type="text" placeholder="math" id="math"><br>
+                <input type="button" class="btn" value="Show Percentage" name="" onclick="calcy()">
+            </form>
+        </div>
+        <div class="bottom">
+            <span > <p id="showper"></p></span>
+        </div>
+    </div>
+    <script>
+        const calcy = () => {
+            let comp = document.getElementById("comp").value;
+            let phy = document.getElementById("phy").value;
+            let chem = document.getElementById("chem").value;
+            let math = document.getElementById("math").value;
+            let total = parseFloat(comp) + parseFloat(phy) + parseFloat(chem) + parseFloat(math);
+            let totalper = (total / 400) * 100;
+            let grades = "";
+            if (totalper <= 100 && totalper >= 80) {
+                grades = "A";
+            }
+            else if (totalper <= 79 && totalper >= 60) {
+                grades = "B";
+            }
+            else if (totalper <= 59 && totalper >= 40) {
+                grades = "C";
+            }
+            else {
+                grades = "F";
+            }
+            if (totalper >= 39.5) {
+                document.getElementById('showper').innerHTML = `Out of 400 your total is ${total} and percentage is ${totalper}%.<br>  your grade is ${grades}. You are Pass `;
+            }
+            else {
+                document.getElementById('showper').innerHTML = `Out of 400 your total is ${total} and percentage is ${totalper}%.<br>  your grade is ${grades}. You are Pass `;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
